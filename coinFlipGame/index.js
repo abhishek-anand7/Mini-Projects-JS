@@ -1,12 +1,11 @@
 const playerMove = document.querySelector(".player-move");
-const computerMove = document.querySelector(".computer-move");
 const resultPara = document.querySelector(".result-para");
-const tieScore = document.querySelector(".tie-score")
+const tieScore = document.querySelector(".tie-score");
 const playerScore = document.querySelector(".player-score");
 const computerScore = document.querySelector(".computer-score");
 const restartButton = document.querySelector(".restart-btn");
 
-// Mine code. I was able to build logic but failed to pass data from one function to another function.
+// I wrote this code. I was able to build logic but failed to pass data from one function to another function.
 /*
 function playerPlay() {
   let pP = playerMove.addEventListener("click", () => {
@@ -40,11 +39,10 @@ function result() {
 
 function playerPlay() {
   playerMove.addEventListener("click", () => {
-
     let playerCoin = Math.random() < 0.5 ? "Heads" : "Tails";
 
     let computerCoin = computerPlay();
-    
+
     computerPlay();
 
     result(playerCoin, computerCoin);
@@ -55,45 +53,43 @@ function computerPlay() {
   return Math.random() < 0.5 ? "Heads" : "Tails";
 }
 
+// Here, I declared these variables inside the function which I shouldn't have. Inside the function it's only increase to 1 because after the end of the function, these variables gets destroyed and start from 0 again.
 let tie = 0;
 let playerWins = 0;
 let computerWins = 0;
 
 function result(playerCoin, computerCoin) {
-
   if (playerCoin === computerCoin) {
     resultPara.textContent = `Player choose ${playerCoin} & Computer choose ${computerCoin}, TIE.`;
 
     tie++;
     tieScore.textContent = `Tie: ${tie}`;
-    
   } else if (playerCoin === "Heads" && computerCoin === "Tails") {
     resultPara.textContent = `Player choose ${playerCoin} & Computer choose ${computerCoin}, PLAYER WINS.`;
 
     playerWins++;
-    playerScore.textContent = `Player: ${playerWins}`
-    
+    playerScore.textContent = `Player: ${playerWins}`;
   } else {
     resultPara.textContent = `Player choose ${playerCoin} & Computer choose ${computerCoin}, COMPUTER WINS.`;
 
     computerWins++;
-    computerScore.textContent = `Computer: ${computerWins}`
+    computerScore.textContent = `Computer: ${computerWins}`;
   }
-};
+}
 
 playerPlay();
 
 function restartBtn() {
   restartButton.addEventListener("click", () => {
     resultPara.textContent = "";
-    tieScore.textContent= "";
-    playerScore.textContent= "";
-    computerScore.textContent= "";
+    tieScore.textContent = "";
+    playerScore.textContent = "";
+    computerScore.textContent = "";
 
     tie = 0;
     playerWins = 0;
     computerWins = 0;
-  })
-};
+  });
+}
 
 restartBtn();
