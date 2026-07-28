@@ -3,6 +3,7 @@ const computerMove = document.querySelector(".computer-move");
 const resultPara = document.querySelector(".result-para");
 const playerScore = document.querySelector(".player-score");
 const computerScore = document.querySelector(".computer-score");
+const resetButton = document.querySelector(".reset-btn");
 
 // Mine code. I was able to build logic but failed to pass data from one function to another function.
 /*
@@ -55,14 +56,22 @@ function computerPlay() {
 
 function result(playerCoin, computerCoin) {
   if (playerCoin === computerCoin) {
-    console.log(`Player choose ${playerCoin} & Computer choose ${computerCoin}, game is tie.`);
+    resultPara.textContent = `Player choose ${playerCoin} & Computer choose ${computerCoin}, game is tie.`;
     
   } else if (playerCoin === "Heads" && computerCoin === "Tails") {
-    console.log(`Player choose ${playerCoin} & Computer choose ${computerCoin}, Player wins.`);
+    resultPara.textContent = `Player choose ${playerCoin} & Computer choose ${computerCoin}, Player wins.`;
     
   } else {
-    console.log(`Player choose ${playerCoin} & Computer choose ${computerCoin}, Computer wins.`);
+    resultPara.textContent = `Player choose ${playerCoin} & Computer choose ${computerCoin}, Computer wins.`;
   }
 };
 
 playerPlay();
+
+function resetBtn() {
+  resetButton.addEventListener("click", () => {
+    resultPara.textContent = "";
+  })
+};
+
+resetBtn();
