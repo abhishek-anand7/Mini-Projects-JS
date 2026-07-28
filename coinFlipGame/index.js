@@ -62,19 +62,19 @@ let computerWins = 0;
 function result(playerCoin, computerCoin) {
 
   if (playerCoin === computerCoin) {
-    resultPara.textContent = `Player choose ${playerCoin} & Computer choose ${computerCoin}, game is tie.`;
+    resultPara.textContent = `You choose ${playerCoin} & Computer choose ${computerCoin}, game is tie.`;
 
     tie++;
     tieScore.textContent = `Tie: ${tie}`;
     
   } else if (playerCoin === "Heads" && computerCoin === "Tails") {
-    resultPara.textContent = `Player choose ${playerCoin} & Computer choose ${computerCoin}, Player wins.`;
+    resultPara.textContent = `You choose ${playerCoin} & Computer choose ${computerCoin}, You wins.`;
 
     playerWins++;
-    playerScore.textContent = `Player: ${playerWins}`
+    playerScore.textContent = `You: ${playerWins}`
     
   } else {
-    resultPara.textContent = `Player choose ${playerCoin} & Computer choose ${computerCoin}, Computer wins.`;
+    resultPara.textContent = `You choose ${playerCoin} & Computer choose ${computerCoin}, Computer wins.`;
 
     computerWins++;
     computerScore.textContent = `Computer: ${computerWins}`
@@ -89,6 +89,10 @@ function restartBtn() {
     tieScore.textContent= "";
     playerScore.textContent= "";
     computerScore.textContent= "";
+
+    tie = 0;
+    playerWins = 0;
+    computerWins = 0;
   })
 };
 
