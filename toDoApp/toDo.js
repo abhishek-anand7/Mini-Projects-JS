@@ -20,6 +20,22 @@ addBtn.addEventListener("click", () => {
   toDoArray.push(taskText);
 
   toDoInput.value = "";
+
+  renderToDo();
 });
 
+function renderToDo() {
+  toDoBox.innerHTML = "";
 
+  toDoArray.forEach((taskText) => {
+    const taskTextElement = document.createElement("div");
+    taskTextElement.classList.add("todo-item");
+
+    taskTextElement.dataset.id = taskText.id;
+
+    taskTextElement.innerHTML = `<span class="${taskText.completed ? "completed" : ""}">${taskText.text}</span>
+      <button class="delete-btn">Delete</button>`;
+
+      toDoBox.appendChild(taskTextElement);
+  });
+}
